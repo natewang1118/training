@@ -3,6 +3,7 @@ package com.example.training.mapper;
 import com.example.training.domain.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -20,7 +21,12 @@ public interface UserMapper {
 //    })
     User findUserByAccount(String username);
 
-    String update(User user);
+    @Update("update user_info_ " +
+            "set id = #{id}," +
+            "username = #{username}," +
+            "password = #{password} " +
+            "where id = #{id}")
+    void update(User user);
 
     @Select("Select * From user_info_")
 //    @Results({

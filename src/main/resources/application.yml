@@ -1,40 +1,12 @@
 spring:
-  thymeleaf:
-    cache: false
   cache:
     type: redis
   redis:
     host: 192.168.93.147
     port: 6379
     password: password
-    # redis数据库索引（默认为0），我们使用索引为3的数据库，避免和其他数据库冲突
     database: 3
     timeout: 0
-    pool:
-      max-active: 8
-      max-idle: 8
-      min-idle: 0
-      max-wait: -1
-  #  h2:
-  #    console:
-  #      enabled: true
-  #      path: /h2-console
-  #    datasource:
-  #      url: jdbc:h2:mem:mydb
-  #      driver-class-name: org.h2.Driver
-  #      username: sa
-  #      password:
-  #  jpa:
-  #    generate-ddl: true
-  #    show-sql: false
-  #    database-platform: org.hibernate.dialect.H2Dialect
-  #    properties:
-  #      hibernate:
-  #        default_schema: public
-  #        event:
-  #          merge:
-  #            entity_copy_observer: allow
-  #    open-in-view: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:postgresql://192.168.93.146/postgres
@@ -47,8 +19,11 @@ spring:
     generate-ddl: true
     show-sql: false
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: guest
+#    password: guest
 mybatis:
   type-aliases-package: com.example.training.domain
-jwt:
-  signKey: 1qaz2wsx3edc4rfv5tgb6yhn7ujm
-  expireTimeAsSec: 120
+

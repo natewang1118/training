@@ -21,7 +21,7 @@ public class User implements Serializable {
      * 主鍵
      */
     @Id
-    @Column(name = "id", nullable = false, length = 32)
+    @Column(name = "id", nullable = false)
     @GeneratedValue(generator = "uuid")
     private String id;
 
@@ -30,6 +30,5 @@ public class User implements Serializable {
 
     @Column(name = "password")
     private String password;
-
 
 }
